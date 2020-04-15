@@ -15,8 +15,10 @@ class AllAboutClubsCellTableViewCell: UITableViewCell {
     @IBOutlet weak var country: UILabel!
     @IBOutlet weak var value: UILabel!
     
+    // Configure Cell's info
     func configCell(club: Club) {
-        let urlImage = club.logo
+        
+        let urlImage = club.logo // Set club's logo image
         
         if let url = URL(string: urlImage) {
             do {
@@ -26,6 +28,10 @@ class AllAboutClubsCellTableViewCell: UITableViewCell {
                 print("Error: \(error.localizedDescription)")
             }
         }
+        
+        name.text = club.name // Set club's name label
+        country.text = club.country // Set club's country label
+        value.text = "\(club.value) Millionen" // Set club's value label
     }
     
 }

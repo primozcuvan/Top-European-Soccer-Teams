@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0BE72373C08921212712EA /* Pods_Top_European_soccer_teams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC70D1AAE83AC662C652E213 /* Pods_Top_European_soccer_teams.framework */; };
 		D988E9032447414100BE71CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988E9022447414100BE71CA /* AppDelegate.swift */; };
 		D988E9052447414100BE71CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988E9042447414100BE71CA /* SceneDelegate.swift */; };
-		D988E9072447414100BE71CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988E9062447414100BE71CA /* ViewController.swift */; };
+		D988E9072447414100BE71CA /* AllAboutClubsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988E9062447414100BE71CA /* AllAboutClubsVC.swift */; };
 		D988E90A2447414100BE71CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D988E9082447414100BE71CA /* Main.storyboard */; };
 		D988E90C2447414300BE71CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D988E90B2447414300BE71CA /* Assets.xcassets */; };
 		D988E90F2447414300BE71CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D988E90D2447414300BE71CA /* LaunchScreen.storyboard */; };
@@ -18,10 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BE6D953D27490D285277FED /* Pods-Top European soccer teams.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top European soccer teams.release.xcconfig"; path = "Target Support Files/Pods-Top European soccer teams/Pods-Top European soccer teams.release.xcconfig"; sourceTree = "<group>"; };
+		CC70D1AAE83AC662C652E213 /* Pods_Top_European_soccer_teams.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Top_European_soccer_teams.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D25C2315CBD871507453E94C /* Pods-Top European soccer teams.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top European soccer teams.debug.xcconfig"; path = "Target Support Files/Pods-Top European soccer teams/Pods-Top European soccer teams.debug.xcconfig"; sourceTree = "<group>"; };
 		D988E8FF2447414100BE71CA /* Top European soccer teams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Top European soccer teams.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D988E9022447414100BE71CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D988E9042447414100BE71CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D988E9062447414100BE71CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D988E9062447414100BE71CA /* AllAboutClubsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAboutClubsVC.swift; sourceTree = "<group>"; };
 		D988E9092447414100BE71CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D988E90B2447414300BE71CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D988E90E2447414300BE71CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A0BE72373C08921212712EA /* Pods_Top_European_soccer_teams.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CDAE9D8232DE616950706D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC70D1AAE83AC662C652E213 /* Pods_Top_European_soccer_teams.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5884F5892C44321A8166E95B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D25C2315CBD871507453E94C /* Pods-Top European soccer teams.debug.xcconfig */,
+				5BE6D953D27490D285277FED /* Pods-Top European soccer teams.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D988E8F62447414100BE71CA = {
 			isa = PBXGroup;
 			children = (
 				D988E9012447414100BE71CA /* Top European soccer teams */,
 				D988E9002447414100BE71CA /* Products */,
+				5884F5892C44321A8166E95B /* Pods */,
+				2CDAE9D8232DE616950706D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,7 +116,7 @@
 			children = (
 				D988E9022447414100BE71CA /* AppDelegate.swift */,
 				D988E9042447414100BE71CA /* SceneDelegate.swift */,
-				D988E9062447414100BE71CA /* ViewController.swift */,
+				D988E9062447414100BE71CA /* AllAboutClubsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -104,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D988E9132447414300BE71CA /* Build configuration list for PBXNativeTarget "Top European soccer teams" */;
 			buildPhases = (
+				AED8E9057F0287FC54A9857A /* [CP] Check Pods Manifest.lock */,
 				D988E8FB2447414100BE71CA /* Sources */,
 				D988E8FC2447414100BE71CA /* Frameworks */,
 				D988E8FD2447414100BE71CA /* Resources */,
+				6D8E58DFB503436FE9455388 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,12 +189,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6D8E58DFB503436FE9455388 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Top European soccer teams/Pods-Top European soccer teams-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Top European soccer teams/Pods-Top European soccer teams-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Top European soccer teams/Pods-Top European soccer teams-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AED8E9057F0287FC54A9857A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Top European soccer teams-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D988E8FB2447414100BE71CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D988E9072447414100BE71CA /* ViewController.swift in Sources */,
+				D988E9072447414100BE71CA /* AllAboutClubsVC.swift in Sources */,
 				D988E9032447414100BE71CA /* AppDelegate.swift in Sources */,
 				D988E91C244746BC00BE71CA /* Club.swift in Sources */,
 				D988E9052447414100BE71CA /* SceneDelegate.swift in Sources */,
@@ -314,6 +382,7 @@
 		};
 		D988E9142447414300BE71CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D25C2315CBD871507453E94C /* Pods-Top European soccer teams.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -333,6 +402,7 @@
 		};
 		D988E9152447414300BE71CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BE6D953D27490D285277FED /* Pods-Top European soccer teams.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
