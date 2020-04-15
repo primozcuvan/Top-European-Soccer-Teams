@@ -15,20 +15,11 @@ class AllAboutClubsCellTableViewCell: UITableViewCell {
     @IBOutlet weak var country: UILabel!
     @IBOutlet weak var value: UILabel!
     
+    let logoImage = LogoImage()
+    
     // Configure Cell's info
-    func configCell(club: Club) {
-        
-        let urlImage = club.logo // Set club's logo image
-        
-        if let url = URL(string: urlImage) {
-            do {
-                let data = try Data(contentsOf: url)
-                self.logo.image = UIImage(data: data)
-            } catch let error {
-                print("Error: \(error.localizedDescription)")
-            }
-        }
-        
+    func configCell(club: ClubData) {
+        logo.image = UIImage(data: logoImage.getLogoImage(imageString: club.image)) //
         name.text = club.name // Set club's name label
         country.text = club.country // Set club's country label
         value.text = "\(club.value) Millionen" // Set club's value label
