@@ -16,6 +16,7 @@
 		D988E91A244745F000BE71CA /* AllAboutClubsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988E919244745F000BE71CA /* AllAboutClubsCellTableViewCell.swift */; };
 		D988E91C244746BC00BE71CA /* ClubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988E91B244746BC00BE71CA /* ClubData.swift */; };
 		D988E91E2447547F00BE71CA /* ClubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988E91D2447547F00BE71CA /* ClubManager.swift */; };
+		D988E9202447939500BE71CA /* ClubDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988E91F2447939500BE71CA /* ClubDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D988E919244745F000BE71CA /* AllAboutClubsCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAboutClubsCellTableViewCell.swift; sourceTree = "<group>"; };
 		D988E91B244746BC00BE71CA /* ClubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubData.swift; sourceTree = "<group>"; };
 		D988E91D2447547F00BE71CA /* ClubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubManager.swift; sourceTree = "<group>"; };
+		D988E91F2447939500BE71CA /* ClubDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				D988E9022447414100BE71CA /* AppDelegate.swift */,
 				D988E9042447414100BE71CA /* SceneDelegate.swift */,
 				D988E9062447414100BE71CA /* AllAboutClubsVC.swift */,
+				D988E91F2447939500BE71CA /* ClubDetailsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			files = (
 				D988E9072447414100BE71CA /* AllAboutClubsVC.swift in Sources */,
 				D988E9032447414100BE71CA /* AppDelegate.swift in Sources */,
+				D988E9202447939500BE71CA /* ClubDetailsVC.swift in Sources */,
 				D988E91C244746BC00BE71CA /* ClubData.swift in Sources */,
 				D988E9052447414100BE71CA /* SceneDelegate.swift in Sources */,
 				D988E91A244745F000BE71CA /* AllAboutClubsCellTableViewCell.swift in Sources */,
