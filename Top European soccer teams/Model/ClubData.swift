@@ -17,7 +17,7 @@ struct ClubData : Codable {
     
 }
 
-struct LogoImage {
+class LogoImage {
     // getLogoImage gets the data from the logo url
     func getLogoImage(imageString: String) -> Data {
         if let url = URL(string: imageString) {

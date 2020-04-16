@@ -18,11 +18,16 @@ class AllAboutClubsCellTableViewCell: UITableViewCell {
     let logoImage = LogoImage()
     
     // Configure Cell's info
-    func configCell(club: ClubData) {
-        logo.image = UIImage(data: logoImage.getLogoImage(imageString: club.image)) //
+    func configCell(club: ClubData) -> Bool {
+        let imageData = logoImage.getLogoImage(imageString: club.image)
+        if  imageData == Data() {
+            return false
+        }
+        logo.image = UIImage(data: imageData) //
         name.text = club.name // Set club's name label
         country.text = club.country // Set club's country label
         value.text = "\(club.value) Millionen" // Set club's value label
+        return true
     }
     
 }

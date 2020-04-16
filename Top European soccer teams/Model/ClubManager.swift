@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: ClubManagerDelegate
 protocol ClubManagerDelegate {
     func didLoadData(clubs: [ClubData])
+    func connect(connectionIsEstablished: Bool)
 }
 
 class ClubManager {
@@ -23,11 +25,13 @@ class ClubManager {
         // Create URL
         if let url = URL(string: stringURL) {
             let session = URLSession(configuration: .default) // Create session
+            print("session \(session)")
             let task = session.dataTask(with: url) { (data, response, error) in
                 
                 // If there is an error, display it and do nothing
                 if error != nil {
                     print("Error: \(error!)")
+                    self.delegate?.connect(connectionIsEstablished: false)
                     return // Do nothnig
                 }
                 
@@ -39,6 +43,13 @@ class ClubManager {
                 }
             }
             task.resume()
+            
+            if task.state == .completed {
+                task.cancel()
+            }
+        } else {
+            // URL not valid
+            print("URL is not valid")
         }
     }
     

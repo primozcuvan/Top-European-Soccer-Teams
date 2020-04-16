@@ -43,6 +43,13 @@ class AllAboutClubsVC: UIViewController {
         
     }
     
+    func displayAlert() {
+        let alert = UIAlertController(title: "Something went wrong", message: "Could not load the data. Check your internet connetion.", preferredStyle: .alert)
+        let restartAction = UIAlertAction(title: "Continue", style: .default) { (UIAlertAction) in }
+        alert.addAction(restartAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     //MARK: SortierenButtonPressed
     @IBAction func SortierenButtonPressed(_ sender: Any) {
         if toogleSorting == false {
@@ -70,8 +77,11 @@ extension AllAboutClubsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell") as! AllAboutClubsCellTableViewCell // Custom cell
-        cell.configCell(club: allClubs[indexPath.row]) // Asign the cell its properties
-
+        let loadedImage = cell.configCell(club: allClubs[indexPath.row]) // Asign the cell its properties
+        
+        if loadedImage == false && indexPath.row == 0 { // Display alert only once
+            displayAlert()
+        }
         return cell
     }
     
@@ -104,8 +114,18 @@ extension AllAboutClubsVC: ClubManagerDelegate {
     func didLoadData(clubs: [ClubData]) {
         allClubs = clubs
         allClubs = allClubs.sorted(by: { $0.name < $1.name }) // Sort by ABC... -> Default Sorting
+        print(allClubs)
         DispatchQueue.main.async {
             self.clubsTableView.reloadData() // Reload tableView to show gathered data
+        }
+    }
+    
+    func connect(connectionIsEstablished: Bool) {
+        if connectionIsEstablished == false {
+            print("Creating alert")
+            DispatchQueue.main.async {
+                self.displayAlert()
+            }
         }
     }
     
