@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class ClubDetailsVC: UIViewController {
 
     @IBOutlet weak var logoImage: UIImageView!
@@ -19,27 +17,32 @@ class ClubDetailsVC: UIViewController {
     
     let logo = LogoImage()
     
-    var image : String?
-    var country : String?
-    var name : String?
-    var value : Int?
+    var club : ClubData! = nil // Init
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("Name: \(name ?? "")")
         
-        logoImage.image = UIImage(data: logo.getLogoImage(imageString: image ?? ""))
-        countryLabel.text = country
+        // Set the title of the navigation screen
+        let title = UILabel()
+        title.text = club.name
+        title.textColor = .white
+        title.font = UIFont.boldSystemFont(ofSize: 22)
+        title.sizeToFit()
+        self.navigationItem.titleView = title
         
-        let details = NSMutableAttributedString(string: "Der Club " , attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)])
-        details.append(NSAttributedString(string: name ?? "", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)]))
-        details.append(NSAttributedString(string: " aus \(country ?? "") hat einen Wert von \(value ?? 0) Millionen Euro.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)]))
-
+        logoImage.image = UIImage(data: logo.getLogoImage(imageString: club.image)) // Set logo image
+        countryLabel.text = club.country // Set country label
+        
+        // Set details text
+        let details = NSMutableAttributedString(string: "Der Club " , attributes:
+            [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)])
+        details.append(NSAttributedString(string: club.name, attributes:
+            [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)]))
+        details.append(NSAttributedString(string: " aus \(club.country) hat einen Wert von \(club.value) Millionen Euro.", attributes:
+            [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)]))
         
         detailsLabel.attributedText = details
-        
-        
     }
     
 }

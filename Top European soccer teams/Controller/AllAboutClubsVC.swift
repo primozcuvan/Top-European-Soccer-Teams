@@ -14,15 +14,17 @@ class AllAboutClubsVC: UIViewController {
     
     let infoURL = "https://public.allaboutapps.at/hiring/clubs.json"
     
+    let ClubDetailsVCIdentifier = "GoToDetails" // Identifier to perform a segue
+    
     let clubManager = ClubManager()
     var allClubs : [ClubData] = []
     
-    var toogleSorting : Bool = false // Default - ABC...
+    var toogleSorting : Bool = false // toogle the sorting method
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the title of the screen
+        // Set the title of the navigation screen
         let title = UILabel()
         title.text = "All About Clubs"
         title.textColor = .white
@@ -35,7 +37,7 @@ class AllAboutClubsVC: UIViewController {
         clubsTableView.delegate = self
         clubsTableView.dataSource = self
         
-        //
+        // Perform request and get the the info about the clubs
         clubManager.delegate = self
         clubManager.performRequest(stringURL: infoURL)
         
@@ -49,28 +51,27 @@ class AllAboutClubsVC: UIViewController {
             toogleSorting = true
         } else {
             // Default
-            allClubs = allClubs.sorted(by: { $0.name < $1.name }) // Sort by alphabetical order
+            allClubs = allClubs.sorted(by: { $0.name < $1.name }) // Sort by ABC...
             clubsTableView.reloadData() // Reload tableView
             toogleSorting = false
         }
         
     }
     
-
 }
 
 //MARK: TableView
 extension AllAboutClubsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allClubs.count
+        return allClubs.count // Number of all clubs in array
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell") as! AllAboutClubsCellTableViewCell
-        cell.configCell(club: allClubs[indexPath.row])
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell") as! AllAboutClubsCellTableViewCell // Custom cell
+        cell.configCell(club: allClubs[indexPath.row]) // Asign the cell its properties
+
         return cell
     }
     
@@ -80,10 +81,20 @@ extension AllAboutClubsVC: UITableViewDelegate, UITableViewDataSource {
         UIView.animate(withDuration: 0.5, delay: 0.05 * Double(indexPath.row), animations: {cell.alpha = 1})
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120.0 // Set row height
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        performSegue(withIdentifier: "GoToDetails", sender: self)
+        let club = allClubs[indexPath.row]
+        performSegue(withIdentifier: ClubDetailsVCIdentifier, sender: club)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ClubDetailsVCIdentifier {
+            let detailsVC = segue.destination as! ClubDetailsVC
+            detailsVC.club = sender as? ClubData
+        }
     }
 }
 
@@ -92,9 +103,9 @@ extension AllAboutClubsVC: ClubManagerDelegate {
     
     func didLoadData(clubs: [ClubData]) {
         allClubs = clubs
-        allClubs = allClubs.sorted(by: { $0.name < $1.name }) // Sort by alphabetical order -> Default
+        allClubs = allClubs.sorted(by: { $0.name < $1.name }) // Sort by ABC... -> Default Sorting
         DispatchQueue.main.async {
-            self.clubsTableView.reloadData()
+            self.clubsTableView.reloadData() // Reload tableView to show gathered data
         }
     }
     
