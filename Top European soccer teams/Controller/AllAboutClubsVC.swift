@@ -21,12 +21,13 @@ class AllAboutClubsVC: UIViewController {
     
     var toogleSorting : Bool = false // toogle the sorting method
     
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the title of the navigation screen
         let title = UILabel()
-        title.text = "All About Clubs"
+        title.text = NSLocalizedString("TitleOfTheApp", comment: "") // Using Localizable String to set the title of the view
         title.textColor = .white
         title.font = UIFont.boldSystemFont(ofSize: 22)
         title.sizeToFit()
@@ -43,8 +44,12 @@ class AllAboutClubsVC: UIViewController {
         
     }
     
+    //MARK: Display alert
     func displayAlert() {
-        let alert = UIAlertController(title: "Something went wrong", message: "Could not load the data. Check your internet connetion.", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Something went wrong",
+            message: "Could not load the data. Check your internet connetion.",
+            preferredStyle: .alert)
         let restartAction = UIAlertAction(title: "Continue", style: .default) { (UIAlertAction) in }
         alert.addAction(restartAction)
         self.present(alert, animated: true, completion: nil)
@@ -53,7 +58,7 @@ class AllAboutClubsVC: UIViewController {
     //MARK: SortierenButtonPressed
     @IBAction func SortierenButtonPressed(_ sender: Any) {
         if toogleSorting == false {
-            allClubs = allClubs.sorted(by: { $0.value > $1.value }) // Sort by
+            allClubs = allClubs.sorted(by: { $0.value > $1.value }) // Sort by value
             clubsTableView.reloadData() // Reload tableView
             toogleSorting = true
         } else {
@@ -77,7 +82,7 @@ extension AllAboutClubsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell") as! AllAboutClubsCellTableViewCell // Custom cell
-        let loadedImage = cell.configCell(club: allClubs[indexPath.row]) // Asign the cell its properties
+        let loadedImage = cell.configCell(club: allClubs[indexPath.row]) // Asign the cell its properties and get info about the loaded image
         
         if loadedImage == false && indexPath.row == 0 { // Display alert only once
             displayAlert()
@@ -122,7 +127,6 @@ extension AllAboutClubsVC: ClubManagerDelegate {
     
     func connect(connectionIsEstablished: Bool) {
         if connectionIsEstablished == false {
-            print("Creating alert")
             DispatchQueue.main.async {
                 self.displayAlert()
             }

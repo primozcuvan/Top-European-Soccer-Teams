@@ -25,7 +25,6 @@ class ClubManager {
         // Create URL
         if let url = URL(string: stringURL) {
             let session = URLSession(configuration: .default) // Create session
-            print("session \(session)")
             let task = session.dataTask(with: url) { (data, response, error) in
                 
                 // If there is an error, display it and do nothing
@@ -34,7 +33,6 @@ class ClubManager {
                     self.delegate?.connect(connectionIsEstablished: false)
                     return // Do nothnig
                 }
-                
                 // Process data
                 if let safeData = data {
                     if let club = self.parseJSON(club: safeData) {

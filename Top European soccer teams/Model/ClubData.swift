@@ -9,12 +9,10 @@
 import Foundation
 
 struct ClubData : Codable {
-
     let name : String
     let country : String
     let value : Int
     let image : String
-    
 }
 
 class LogoImage {

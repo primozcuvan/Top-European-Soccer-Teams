@@ -20,10 +20,12 @@ class AllAboutClubsCellTableViewCell: UITableViewCell {
     // Configure Cell's info
     func configCell(club: ClubData) -> Bool {
         let imageData = logoImage.getLogoImage(imageString: club.image)
+        
         if  imageData == Data() {
-            return false
+            return false // If imageData is an empty Data return false and display an alert
         }
-        logo.image = UIImage(data: imageData) //
+        
+        logo.image = UIImage(data: imageData) // Set club's logo image
         name.text = club.name // Set club's name label
         country.text = club.country // Set club's country label
         value.text = "\(club.value) Millionen" // Set club's value label

@@ -1,0 +1,27 @@
+
+/* Class = "UIButton"; normalTitle = "Sortieren"; ObjectID = "10t-wG-AhH"; */
+"10t-wG-AhH.normalTitle" = "Sort";
+
+/* Class = "UINavigationItem"; title = "Name Of The Club"; ObjectID = "5Cd-pX-asc"; */
+"5Cd-pX-asc.title" = "Name Of The Club";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "9dI-ih-ZNX"; */
+"9dI-ih-ZNX.text" = "Country";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "GeU-jB-jfd"; */
+"GeU-jB-jfd.title" = " ";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "IAm-aG-rQH"; */
+"IAm-aG-rQH.text" = "Country";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "ZsU-KR-go4"; */
+"ZsU-KR-go4.text" = "Value";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "b8l-Td-8eb"; */
+"b8l-Td-8eb.text" = "Name";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "neq-5E-czz"; */
+"neq-5E-czz.title" = "Item";
+
+/* Class = "UILabel"; text = "Details"; ObjectID = "pd7-46-lea"; */
+"pd7-46-lea.text" = "Details";
